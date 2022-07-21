@@ -1,0 +1,7 @@
+Service layer explanation
+
+Responsibilities
+
+- Maintain the business logic
+- third party/Public API call can be done in the service layer
+- call the DAO layer 

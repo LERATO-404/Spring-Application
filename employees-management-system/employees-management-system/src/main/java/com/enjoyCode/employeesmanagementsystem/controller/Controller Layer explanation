@@ -1,0 +1,10 @@
+Controller layer explanation
+
+Responsibilities
+
+- Process all the request send by the client
+- Also called the API Layer
+- We define all the API request (Get, Post, Put, Delete, etc)
+- call the service layer
+- Inject the service interface/class, and call the service class/method in the controller layer
+- depend on the service layer

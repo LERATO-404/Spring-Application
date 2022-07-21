@@ -1,0 +1,14 @@
+Data Access Object (DAO) layer explanation
+
+Responsibilities
+
+- Connect to the database (MYSQL, H2, OracleSQL, etc)
+- Also called the Repository/Persistence layer, 
+- Inject the service interface/class, and call the service class/method in the DAO layer
+- To connect to the database you need the following properties:
+	1. JDBC (Java database connection) Driver
+	2. JDBC URL
+	3. User-name
+	4. Password
+	
+	
