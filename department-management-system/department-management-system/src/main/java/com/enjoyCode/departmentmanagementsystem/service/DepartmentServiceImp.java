@@ -2,11 +2,15 @@ package com.enjoyCode.departmentmanagementsystem.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.enjoyCode.departmentmanagementsystem.entity.Department;
+import com.enjoyCode.departmentmanagementsystem.exceptions.NotFoundException;
 import com.enjoyCode.departmentmanagementsystem.repository.DepartmentRepository;
+
 
 @Service
 public class DepartmentServiceImp implements DepartmentService {
@@ -28,15 +32,27 @@ public class DepartmentServiceImp implements DepartmentService {
 	@Override
 	public Department fetchDepartmentById(Long departmentId) {
 		
-		return departmentRepository.findById(departmentId).get();
+		//return departmentRepository.findById(departmentId).get(); or
+		return departmentRepository.findById(departmentId).
+									orElseThrow(
+											() -> new NotFoundException("department does not exist")
+									);
 	}
 
 	@Override
 	public void deleteDepartmentById(Long departmentId) {
-		departmentRepository.deleteById(departmentId);
 		
+		//check whether department exist in DB or not
+		departmentRepository.findById(departmentId).
+										orElseThrow(
+												() -> new NotFoundException("department does not exist")
+										);
+		
+		departmentRepository.deleteById(departmentId);
 	}
 
+	
+	
 	
 	
 }

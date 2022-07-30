@@ -2,8 +2,11 @@ package com.enjoyCode.departmentmanagementsystem.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +26,7 @@ public class DepartmentController {
 	//method to save a department
 	//RequestBody whatever data convert it to department object -- look into
 	@PostMapping("/savedepartments")
-	public Department saveDepartment(@RequestBody Department department) {
+	public Department saveDepartment(@Validated @RequestBody Department department) {
 		return departmentService.saveDepartment(department);
 	}
 	
@@ -39,10 +42,9 @@ public class DepartmentController {
 	
 	@DeleteMapping("/departments/{id}")
 	public String deleteDepartmentById(@PathVariable("id") Long departmentId) {
-		
 		departmentService.deleteDepartmentById(departmentId);
-		
 		return "Department deleted successfully";
 	}
+	
 	
 }

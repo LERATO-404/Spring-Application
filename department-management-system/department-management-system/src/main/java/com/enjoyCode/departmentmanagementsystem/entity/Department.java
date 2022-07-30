@@ -1,9 +1,11 @@
 package com.enjoyCode.departmentmanagementsystem.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 
 @Entity
 public class Department {
@@ -12,8 +14,14 @@ public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long departmentId;
+	
+	@Column(nullable = false)
 	private String departmentName;
+	
+	@Column(nullable = false)
 	private String departmentAddress;
+	
+	@Column(nullable = false)
 	private String departmentCode;
 	
 	public Department() {
