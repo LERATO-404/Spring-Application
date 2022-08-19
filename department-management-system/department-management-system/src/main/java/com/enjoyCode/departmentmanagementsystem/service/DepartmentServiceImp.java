@@ -51,6 +51,12 @@ public class DepartmentServiceImp implements DepartmentService {
 		departmentRepository.deleteById(departmentId);
 	}
 
+	@Override
+	public Department updateDepartment(Long departmentId, Department department) {
+		Department departmentDB = departmentRepository. findById(departmentId).get();
+		return null;
+	}
+
 	
 	
 	
